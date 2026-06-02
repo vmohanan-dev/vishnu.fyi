@@ -36,9 +36,3 @@ Key data files:
 | `src/data/projects.ts` | Project cards for homepage grid |
 | `src/data/project-content.tsx` | Full content for deep-dive pages |
 | `src/data/case-studies.ts` | Gated case study registry |
-
-## Deploy
-
-Push to `main` → Vercel auto-deploys.
-
-Env vars required in Vercel dashboard: `CASE_STUDY_TINES_PASSWORD`.
