@@ -4,15 +4,16 @@ export default function Hero() {
   return (
     <section className="max-w-3xl mx-auto px-6 pt-20 pb-16">
       <p className="text-sm text-zinc-500 mb-4 font-mono">
-        Senior PM → Product Engineer
+        Senior PM · Builder
       </p>
       <h1 className="text-4xl font-semibold tracking-tight text-zinc-900 mb-5 leading-tight">
-        I build things <br className="hidden sm:block" />
-        from spec to ship.
+        I ship product. <br className="hidden sm:block" />
+        I also write the code.
       </h1>
       <p className="text-lg text-zinc-500 mb-8 max-w-xl leading-relaxed">
-        Six years in product at HubSpot. Now I write the code too — using
-        AI-native workflows to go from idea to working product, fast.
+        Nine years in product at HubSpot across AI, mobile, and growth. I use
+        AI-native workflows to go from idea to working product — and I build my
+        own tools in the gaps.
       </p>
       <div className="flex items-center gap-4">
         <CvButton />

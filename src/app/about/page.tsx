@@ -5,37 +5,55 @@ import { Badge } from "@/components/ui/badge";
 
 const experience = [
   {
-    role: "Senior Product Manager",
+    role: "Senior PM, AI Personalization & Ecosystem",
     company: "HubSpot",
-    period: "2022 – present",
+    period: "2025 – present",
     description:
-      "Working on Breeze — HubSpot's AI layer. Led onboarding redesign, AI note-taking, and several zero-to-one features shipped to hundreds of thousands of users.",
+      "Building Breeze Projects — the personalization layer for Breeze Assistant — and the MCP ecosystem strategy that connects third-party apps to Breeze. Positioning: Glean for SMBs.",
   },
   {
-    role: "Product Manager",
+    role: "Senior PM, Growth & Onboarding",
     company: "HubSpot",
-    period: "2020 – 2022",
+    period: "2024 – 2025",
     description:
-      "Owned core CRM features across the contact and company objects. Shipped bulk editing, custom properties, and a new association model.",
+      "Led HubSpot's #1 2025 product priority: product-led onboarding for Pro customers. Shipped an AI conversational onboarding agent that doubled plan adoption. Framework expanded across five hubs.",
   },
   {
-    role: "Associate Product Manager",
+    role: "Senior PM, Mobile Reporting & Platform",
     company: "HubSpot",
-    period: "2019 – 2020",
+    period: "2021 – 2024",
     description:
-      "APM programme. Rotated across three product areas: marketing hub, sales hub, and platform.",
+      "Built mobile reporting from scratch, targeting the sales leader persona. Grew to 55k weekly users. Led the React Native migration that cut feature delivery time by 3×.",
+  },
+  {
+    role: "PM / Associate PM, Mobile",
+    company: "HubSpot",
+    period: "2019 – 2021",
+    description:
+      "Shipped HubSpot's first mobile AI feature — a computer-vision business card scanner — increasing contact creation by 4.5×. Promoted from APM to PM in 13 months.",
+  },
+  {
+    role: "Support Engineer & Product Expert",
+    company: "HubSpot",
+    period: "2015 – 2019",
+    description:
+      "One of the first 10 hires for HubSpot Support in Dublin. Solved 3,500+ cases and ranked consistently in the top 5% for resolution and NPS.",
   },
 ];
 
 const skills = [
+  "AI products",
+  "PLG & onboarding",
+  "Mobile platform",
+  "LLM prompting & evals",
   "Product strategy",
   "Zero-to-one",
-  "AI products",
   "Next.js",
   "TypeScript",
+  "Claude Code",
   "Lovable",
   "Supabase",
-  "Claude API",
+  "SQL",
 ];
 
 export default function About() {
@@ -48,15 +66,18 @@ export default function About() {
             About
           </h1>
           <p className="text-zinc-500 leading-relaxed mb-3">
-            I&apos;m Vishnu — a Senior Product Manager at HubSpot who now also writes
-            the code. After six years shipping product, I started building my
-            own tools using AI-native workflows. What started as curiosity
-            became a practice: I can now go from idea to working product in days
-            rather than weeks.
+            I&apos;m Vishnu — a Senior PM at HubSpot who also writes the code.
+          </p>
+          <p className="text-zinc-500 leading-relaxed mb-3">
+            I did a PhD in Botany before any of this. Research trained me to sit
+            with problems that don&apos;t have obvious answers — but I wanted to work on
+            things that would actually reach people. That brought me to HubSpot, where
+            I&apos;ve spent nine years shipping product across mobile, growth, and AI.
           </p>
           <p className="text-zinc-500 leading-relaxed mb-8">
-            I care about the quality of what gets built — not just the speed.
-            The projects here are real tools I use or have used. None of them
+            Over the last few years I started building my own tools using AI-native
+            workflows. I can now go from idea to working product in days rather than
+            weeks. The projects here are real things I&apos;ve shipped — none of them
             are demos.
           </p>
           <CvButton />
@@ -76,7 +97,7 @@ export default function About() {
                     </p>
                     <p className="text-sm text-zinc-500">{job.company}</p>
                   </div>
-                  <p className="text-xs font-mono text-zinc-400 mt-0.5">
+                  <p className="text-xs font-mono text-zinc-400 mt-0.5 flex-shrink-0 ml-4">
                     {job.period}
                   </p>
                 </div>

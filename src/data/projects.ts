@@ -2,61 +2,53 @@ export type Project = {
   title: string;
   description: string;
   stack: string[];
-  url: string;
-  image?: string;
+  url?: string;
+  slug?: string;
   featured?: boolean;
 };
 
 export const projects: Project[] = [
   {
-    title: "Breeze Onboarding",
+    title: "laceup.club",
     description:
-      "Redesigned HubSpot's onboarding flow around goals rather than features. Built a prototype in Lovable to pressure-test the concept before writing a line of production code.",
-    stack: ["Lovable", "HubSpot"],
-    url: "https://www.hubspot.com",
+      "Tennis club SaaS with 148 clubs and 40,000 match records live in production. Built by orchestrating 12 AI specialists, then making the product calls they couldn't.",
+    stack: ["Claude Code", "Next.js", "Supabase"],
+    url: "https://laceup.club",
+    slug: "laceup",
     featured: true,
   },
   {
-    title: "Breeze Notetaker",
+    title: "AI-First Onboarding",
     description:
-      "AI-first meeting note app that integrates with desktop audio capture. Transcribes, summarises, and surfaces action items without any manual input.",
-    stack: ["Lovable", "OpenAI"],
-    url: "#",
-  },
-  {
-    title: "Clip Studio",
-    description:
-      "Tool for extracting shareable clips from customer calls. Upload a recording, get timestamped highlights ready to share with your team.",
-    stack: ["Lovable", "Supabase", "OpenAI"],
-    url: "#",
-  },
-  {
-    title: "Tennis Cues",
-    description:
-      "Mobile coaching app that delivers technique reminders during a match via audio cues. Built for on-court use — no screen required.",
-    stack: ["Claude", "Supabase", "Expo"],
-    url: "https://github.com/vmohanan-dev/TennisCue",
+      "Redesigned HubSpot's Pro onboarding around an agentic intake that captures customer goals and builds a personalised setup plan. Doubled plan adoption. HubSpot's #1 2025 product priority.",
+    stack: ["Lovable", "LLM", "HubSpot"],
+    slug: "onboarding",
     featured: true,
   },
   {
-    title: "Reno Style",
+    title: "Mobile Reporting",
     description:
-      "Upload a photo of any room and see renovation options applied to it. Useful for quickly visualising paint colours, furniture swaps, or layout changes before committing.",
-    stack: ["Lovable", "Gemini"],
-    url: "#",
-  },
-  {
-    title: "Serve Slots",
-    description:
-      "Tennis court booking platform with a waitlist system. Players join a queue for popular slots and get an SMS when a spot opens.",
-    stack: ["Lovable", "Supabase", "Twilio"],
-    url: "#",
+      "Built mobile dashboard reporting from scratch at HubSpot, targeting sales leaders. Grew to 55k weekly users — 1 in 5 mobile users. Retention improved from 27% to 43%.",
+    stack: ["React Native", "HubSpot"],
+    slug: "mobile-reporting",
   },
   {
     title: "The Arena",
     description:
-      "Round-robin tournament manager that generates match ladders, tracks results, and updates standings in real time.",
-    stack: ["Lovable", "Gemini"],
-    url: "#",
+      "Winter tennis ladder for a local club. Interviewed 5 committee members before building, then shipped a custom matchmaking algorithm unique to club tennis. 2K visitors, 118 completed matches. Learnings became laceup.club.",
+    stack: ["Lovable"],
+  },
+  {
+    title: "Serve Slots",
+    description:
+      "Event booking app with waitlist management for tennis socials. 413 bookings across 37 events, 101 unique players since launch. Core features now live in laceup.club.",
+    stack: ["Lovable", "Supabase", "Twilio"],
+  },
+  {
+    title: "Tennis Cues",
+    description:
+      "iOS coaching app that delivers technique reminders via audio during a match — no screen required. Built to learn E2E iOS development.",
+    stack: ["Claude", "Expo", "Supabase"],
+    url: "https://github.com/vmohanan-dev/TennisCue",
   },
 ];
