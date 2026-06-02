@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# private working documents
+TINES_CONTEXT.md
+tines-executive-brief.html
+tines-problem-prioritization.html
