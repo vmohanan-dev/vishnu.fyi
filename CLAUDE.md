@@ -13,30 +13,70 @@ Personal portfolio for Vishnu Mohanan. Live at [vishnu.fyi](https://vishnu.fyi).
 ## Dev
 
 ```bash
-npm run dev      # http://localhost:3000
-npm run build    # production build (run before pushing)
-npm run lint
+npm_config_registry=https://registry.npmjs.org npm run dev    # http://localhost:3000
+npm_config_registry=https://registry.npmjs.org npm run build  # always run before pushing
 ```
 
-## Adding a project
+Note: always prefix npm/npx with `npm_config_registry=https://registry.npmjs.org` — the machine defaults to the HubSpot internal registry.
 
-Edit [src/data/projects.ts](src/data/projects.ts). Add an entry to the `projects` array:
+## Site structure
+
+| Route | Purpose |
+|---|---|
+| `/` | Hero + project grid |
+| `/about` | Bio, experience, skills |
+| `/project/[slug]` | Public project deep-dive pages |
+| `/case-study/[slug]` | Password-gated case studies (Tines only) |
+
+## Key data files
+
+| File | Purpose |
+|---|---|
+| `src/data/projects.ts` | Project card data for the homepage grid |
+| `src/data/project-content.tsx` | Full content for project deep-dive pages |
+| `src/data/case-studies.ts` | Gated case study registry (Tines) |
+| `src/components/ProjectScreenshot.tsx` | Screenshot display components |
+
+## Adding a project card
+
+Edit `src/data/projects.ts`. Add a `slug` field if the project has a deep-dive page:
 
 ```ts
 {
   title: "Project Name",
   description: "One or two sentences. No filler. No AI slop.",
   stack: ["Next.js", "Supabase"],
-  url: "https://...",
-  featured: true, // optional
+  url: "https://...",        // optional external link
+  slug: "project-slug",     // optional — links to /project/[slug]
+  featured: true,           // optional
 }
 ```
 
-Drop a project image in `/public/projects/[slug].png` if you have one.
+## Adding a project deep-dive page
 
-## Adding a case study
+1. Add a content entry to `src/data/project-content.tsx` — follow the existing pattern (a React component with the narrative, plus a `ProjectPage` entry in the `projectPages` array)
+2. Drop screenshots into `/public/projects/[slug]/`
+3. Use `Screenshot` (single image with browser chrome) or `BeforeAfter` (stacked before/after) or `MobileScreenshots` (portrait grid, no chrome) from `src/components/ProjectScreenshot.tsx`
+4. The route `/project/[slug]` is created automatically
 
-1. Add an entry to [src/data/case-studies.ts](src/data/case-studies.ts)
+## Screenshot components
+
+```tsx
+import { Screenshot, BeforeAfter, MobileScreenshots } from "@/components/ProjectScreenshot";
+
+// Single web screenshot — browser chrome + URL bar
+<Screenshot src="/projects/foo/screen.png" alt="..." url="app.hubspot.com/..." caption="..." />
+
+// Before/after pair — stacked, each with browser chrome
+<BeforeAfter url="app.hubspot.com/..." before={{ src, alt, caption }} after={{ src, alt, caption }} />
+
+// Mobile portrait screenshots — no chrome, grid layout
+<MobileScreenshots screens={[{ src, alt, caption }, ...]} />
+```
+
+## Adding a gated case study
+
+1. Add an entry to `src/data/case-studies.ts`
 2. Set `passwordEnvKey` to a new env var name (e.g. `CASE_STUDY_ACME_PASSWORD`)
 3. Add the env var in `.env.local` (local) and Vercel dashboard (production)
 4. The route `/case-study/[slug]` is created automatically
