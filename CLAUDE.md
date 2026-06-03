@@ -89,6 +89,17 @@ import { Screenshot, BeforeAfter, MobileScreenshots } from "@/components/Project
 - **Typography hierarchy** via size and weight only — not decorative elements, gradients, or icons as decoration.
 - **Geist Mono for badges** — tech stack labels, section headers (`text-xs font-mono uppercase tracking-widest`).
 
+## Writing voice
+
+- Lead with the thesis, not the setup. First sentence states the argument or problem.
+- Em dashes are banned. Use hyphens with spaces ( - ), commas, or restructure.
+- Mix short punchy sentences with longer supporting ones. Don't let every sentence be the same length.
+- No trailing summaries at the end of sections.
+- No hedging: "might", "could", "perhaps". State things plainly.
+- No: "Furthermore", "Additionally", "Moreover", "It is important to note".
+- Bold sparingly — key data points and critical emphasis only, not in-sentence decoration.
+- Call out problems directly. Don't soften with qualifiers.
+
 ## Env vars
 
 | Variable | Purpose |
