@@ -18,6 +18,12 @@ export default function Nav() {
             Work
           </Link>
           <Link
+            href="/skills"
+            className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors"
+          >
+            Skills
+          </Link>
+          <Link
             href="/about"
             className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors"
           >

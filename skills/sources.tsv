@@ -1,0 +1,15 @@
+# Vendored skills — synced from upstream repos by sync.sh.
+# Columns: skill_name <TAB> repo_url <TAB> subpath_within_repo
+# sync.sh clones each repo into .sources/ (gitignored), pulls latest, and
+# symlinks <clone>/<subpath> -> ~/.claude/skills/<skill_name>.
+grill-me	https://github.com/mattpocock/skills.git	skills/productivity/grill-me
+grill-with-docs	https://github.com/mattpocock/skills.git	skills/engineering/grill-with-docs
+handoff	https://github.com/mattpocock/skills.git	skills/productivity/handoff
+tdd	https://github.com/mattpocock/skills.git	skills/engineering/tdd
+teach	https://github.com/mattpocock/skills.git	skills/productivity/teach
+prototype	https://github.com/mattpocock/skills.git	skills/engineering/prototype
+to-prd	https://github.com/mattpocock/skills.git	skills/engineering/to-prd
+writing-beats	https://github.com/mattpocock/skills.git	skills/in-progress/writing-beats
+writing-fragments	https://github.com/mattpocock/skills.git	skills/in-progress/writing-fragments
+writing-shape	https://github.com/mattpocock/skills.git	skills/in-progress/writing-shape
+improve-codebase-architecture	https://github.com/mattpocock/skills.git	skills/engineering/improve-codebase-architecture
