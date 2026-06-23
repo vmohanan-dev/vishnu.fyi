@@ -3,6 +3,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import CaseStudyGate from "@/components/CaseStudyGate";
 import { getCaseStudy } from "@/data/case-studies";
+import { getCaseStudyPage } from "@/data/case-study-content";
 import { checkAuth } from "./actions";
 
 export default async function CaseStudyPage({
@@ -18,6 +19,7 @@ export default async function CaseStudyPage({
   }
 
   const isAuthed = await checkAuth(slug);
+  const page = getCaseStudyPage(slug);
 
   return (
     <>
@@ -31,12 +33,16 @@ export default async function CaseStudyPage({
             <h1 className="text-3xl font-semibold tracking-tight text-zinc-900 mb-8">
               {caseStudy.title}
             </h1>
-            <div className="prose prose-zinc prose-sm max-w-none">
-              <p className="text-zinc-500">{caseStudy.description}</p>
-              <p className="text-zinc-400 italic mt-8">
-                Content coming soon — check back shortly.
-              </p>
-            </div>
+            {page ? (
+              <div>{page.content}</div>
+            ) : (
+              <div className="prose prose-zinc prose-sm max-w-none">
+                <p className="text-zinc-500">{caseStudy.description}</p>
+                <p className="text-zinc-400 italic mt-8">
+                  Content coming soon — check back shortly.
+                </p>
+              </div>
+            )}
           </div>
         ) : (
           <CaseStudyGate slug={slug} />

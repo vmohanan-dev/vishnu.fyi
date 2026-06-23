@@ -1,4 +1,6 @@
+import type { ReactNode } from "react";
 import Image from "next/image";
+import { ExpandableImage } from "./ExpandableImage";
 
 type ScreenshotProps = {
   src: string;
@@ -7,6 +9,7 @@ type ScreenshotProps = {
   caption?: string;
   width?: number;
   height?: number;
+  mediaClassName?: string;
 };
 
 type ComparisonProps = {
@@ -45,16 +48,17 @@ export function Screenshot({
   caption,
   width = 1200,
   height = 800,
+  mediaClassName,
 }: ScreenshotProps) {
   return (
     <figure className="rounded-lg overflow-hidden border border-zinc-200 shadow-sm">
       <ChromeBar url={url} />
-      <Image
+      <ExpandableImage
         src={src}
         alt={alt}
         width={width}
         height={height}
-        className="w-full"
+        className={mediaClassName ?? "w-full"}
       />
       {caption && (
         <figcaption className="text-xs font-mono text-zinc-400 px-4 py-2.5 bg-zinc-50 border-t border-zinc-100">
@@ -65,49 +69,79 @@ export function Screenshot({
   );
 }
 
+function ComparisonPane({
+  label,
+  shot,
+  url,
+}: {
+  label: string;
+  shot: ScreenshotProps;
+  url?: string;
+}) {
+  return (
+    <div>
+      <p className="text-xs font-mono text-zinc-400 uppercase tracking-widest mb-2">
+        {label}
+      </p>
+      <figure className="rounded-lg overflow-hidden border border-zinc-200 shadow-sm">
+        <ChromeBar url={url ?? shot.url} />
+        <ExpandableImage
+          src={shot.src}
+          alt={shot.alt}
+          width={shot.width ?? 1200}
+          height={shot.height ?? 800}
+          className={shot.mediaClassName ?? "w-full"}
+        />
+        {shot.caption && (
+          <figcaption className="text-xs font-mono text-zinc-400 px-4 py-2.5 bg-zinc-50 border-t border-zinc-100">
+            {shot.caption}
+          </figcaption>
+        )}
+      </figure>
+    </div>
+  );
+}
+
 export function BeforeAfter({ before, after, url }: ComparisonProps) {
   return (
-    <div className="space-y-5">
-      <div>
-        <p className="text-xs font-mono text-zinc-400 uppercase tracking-widest mb-2">
-          Before
-        </p>
-        <figure className="rounded-lg overflow-hidden border border-zinc-200 shadow-sm">
-          <ChromeBar url={url ?? before.url} />
-          <Image
-            src={before.src}
-            alt={before.alt}
-            width={before.width ?? 1200}
-            height={before.height ?? 800}
-            className="w-full"
-          />
-          {before.caption && (
-            <figcaption className="text-xs font-mono text-zinc-400 px-4 py-2.5 bg-zinc-50 border-t border-zinc-100">
-              {before.caption}
-            </figcaption>
-          )}
-        </figure>
-      </div>
-      <div>
-        <p className="text-xs font-mono text-zinc-400 uppercase tracking-widest mb-2">
-          After
-        </p>
-        <figure className="rounded-lg overflow-hidden border border-zinc-200 shadow-sm">
-          <ChromeBar url={url ?? after.url} />
-          <Image
-            src={after.src}
-            alt={after.alt}
-            width={after.width ?? 1200}
-            height={after.height ?? 800}
-            className="w-full"
-          />
-          {after.caption && (
-            <figcaption className="text-xs font-mono text-zinc-400 px-4 py-2.5 bg-zinc-50 border-t border-zinc-100">
-              {after.caption}
-            </figcaption>
-          )}
-        </figure>
-      </div>
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-start">
+      <ComparisonPane label="Before" shot={before} url={url} />
+      <ComparisonPane label="After" shot={after} url={url} />
+    </div>
+  );
+}
+
+type VideoProps = {
+  src: string;
+  poster?: string;
+  caption?: string;
+  mediaClassName?: string;
+};
+
+export function Video({ src, poster, caption, mediaClassName }: VideoProps) {
+  return (
+    <figure className="rounded-lg overflow-hidden border border-zinc-200 shadow-sm">
+      <video
+        src={src}
+        poster={poster}
+        controls
+        playsInline
+        preload="metadata"
+        className={mediaClassName ?? "w-full block bg-zinc-900"}
+      />
+      {caption && (
+        <figcaption className="text-xs font-mono text-zinc-400 px-4 py-2.5 bg-zinc-50 border-t border-zinc-100">
+          {caption}
+        </figcaption>
+      )}
+    </figure>
+  );
+}
+
+export function MediaPair({ children }: { children: ReactNode }) {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
+      {children}
     </div>
   );
 }
