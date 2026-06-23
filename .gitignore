@@ -45,4 +45,11 @@ TINES_CONTEXT.md
 tines-executive-brief.html
 tines-problem-prioritization.html
 /performance reviews/
-career-reference.md
+# career-reference.md, career-referencev2.md, etc.
+career-reference*.md
+# private case-study planning
+/Tines/
+# editor vault config
+.obsidian/
+# local Claude Code config (skills live in /skills)
+.claude/
