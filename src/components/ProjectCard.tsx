@@ -5,7 +5,7 @@ import { ExternalLink, ArrowRight } from "lucide-react";
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="group border border-zinc-100 rounded-lg p-6 hover:border-zinc-200 transition-colors bg-white flex flex-col">
+    <div className="group border border-zinc-100 rounded-lg p-6 bg-white flex flex-col transition-all duration-200 hover:border-zinc-200 hover:shadow-sm hover:-translate-y-0.5">
       <div className="flex items-start justify-between mb-3">
         <h3 className="text-base font-semibold text-zinc-900">
           {project.title}

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { ComparisonTable } from "@/components/ComparisonTable";
+import { AssuranceRailPrototype } from "@/components/AssuranceRailPrototype";
 
 export const metadata: Metadata = {
   title: "Components — vishnu.fyi",
@@ -34,14 +36,20 @@ export default function ComponentsPage() {
             <a href="#input"              className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Input</a>
             <a href="#project-card"       className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">ProjectCard</a>
             <a href="#project-grid"       className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">ProjectGrid</a>
+            <a href="#skill-card"         className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">SkillCard</a>
             <a href="#experience-row"     className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Experience row</a>
             <a href="#case-study-gate"    className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">CaseStudyGate</a>
             <a href="#screenshot"         className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Screenshot</a>
             <a href="#before-after"       className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">BeforeAfter</a>
+            <a href="#media-pair"         className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">MediaPair</a>
             <a href="#mobile-screenshots" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">MobileScreenshots</a>
+            <a href="#video"              className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Video</a>
+            <a href="#metrics"            className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Metrics</a>
+            <a href="#comparison-table"   className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">ComparisonTable</a>
             <a href="#card"               className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Card</a>
             <a href="#color-tokens"       className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Color tokens</a>
             <a href="#favicon"            className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Favicon</a>
+            <a href="#assurance-rail"     className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">AssuranceRailPrototype</a>
           </div>
         </nav>
 
@@ -90,6 +98,7 @@ export default function ComponentsPage() {
               <a href="#" className="text-sm font-medium text-zinc-900 hover:text-zinc-600 transition-colors">Vishnu Mohanan</a>
               <div className="flex items-center gap-6">
                 <a href="#" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Work</a>
+                <a href="#" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Skills</a>
                 <a href="#" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">About</a>
               </div>
             </nav>
@@ -265,6 +274,31 @@ export default function ComponentsPage() {
           <p className="text-xs text-zinc-300 font-mono">↳ followed by the grid of ProjectCards above</p>
         </div>
 
+        {/* ── SkillCard ── */}
+        <div id="skill-card" className={sectionDivider}>
+          <p className="text-xs font-mono text-zinc-400 uppercase tracking-widest">SkillCard — used on /skills</p>
+        </div>
+        <div className="mb-16 p-8 border border-zinc-100 rounded-lg">
+          <p className="text-xs font-mono text-zinc-300 mb-4">Skill name in mono (it&apos;s invoked as a command), description, optional external source link. Used in a 2-column grid per tier.</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="group border border-zinc-100 rounded-lg p-5 hover:border-zinc-200 transition-colors bg-white flex flex-col">
+              <div className="flex items-start justify-between gap-3 mb-2">
+                <h3 className="text-sm font-mono font-medium text-zinc-900">slack-er</h3>
+                <a href="#" className="text-zinc-400 hover:text-zinc-700 transition-colors flex-shrink-0" aria-label="Source">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+              </div>
+              <p className="text-sm text-zinc-500 leading-relaxed">Triages my Slack and drafts replies in my voice for messages that genuinely need one. Drafts only, never sends.</p>
+            </div>
+            <div className="group border border-zinc-100 rounded-lg p-5 hover:border-zinc-200 transition-colors bg-white flex flex-col">
+              <div className="flex items-start justify-between gap-3 mb-2">
+                <h3 className="text-sm font-mono font-medium text-zinc-900">deslop</h3>
+              </div>
+              <p className="text-sm text-zinc-500 leading-relaxed">Detects and removes AI writing tropes from prose. (No source link — internal tier.)</p>
+            </div>
+          </div>
+        </div>
+
         {/* ── Experience row ── */}
         <div id="experience-row" className={sectionDivider}>
           <p className="text-xs font-mono text-zinc-400 uppercase tracking-widest">Experience row</p>
@@ -365,8 +399,9 @@ export default function ComponentsPage() {
         <div id="before-after" className={sectionDivider}>
           <p className="text-xs font-mono text-zinc-400 uppercase tracking-widest">BeforeAfter</p>
         </div>
-        <div className="mb-16 p-8 border border-zinc-100 rounded-lg">
-          <div className="space-y-5">
+        <div className="mb-16 p-8 border border-zinc-100 rounded-lg space-y-4">
+          <p className="text-sm text-zinc-500">Before/after pair, side by side. Each image is click-to-expand (full-screen lightbox, Escape or click to close). Stacks on mobile.</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-start">
             <div>
               <p className="text-xs font-mono text-zinc-400 uppercase tracking-widest mb-2">Before</p>
               <div className="rounded-lg overflow-hidden border border-zinc-200 shadow-sm">
@@ -380,7 +415,7 @@ export default function ComponentsPage() {
                     <span className="text-xs font-mono text-zinc-400">app.hubspot.com/onboarding</span>
                   </div>
                 </div>
-                <div className="bg-zinc-100 h-28 flex items-center justify-center">
+                <div className="bg-zinc-100 h-28 flex items-center justify-center cursor-zoom-in">
                   <p className="text-xs font-mono text-zinc-300">before.png</p>
                 </div>
                 <div className="text-xs font-mono text-zinc-400 px-4 py-2.5 bg-zinc-50 border-t border-zinc-100">Static checklist — 12% completion rate</div>
@@ -399,11 +434,40 @@ export default function ComponentsPage() {
                     <span className="text-xs font-mono text-zinc-400">app.hubspot.com/onboarding</span>
                   </div>
                 </div>
-                <div className="bg-zinc-50 h-28 flex items-center justify-center">
+                <div className="bg-zinc-50 h-28 flex items-center justify-center cursor-zoom-in">
                   <p className="text-xs font-mono text-zinc-300">after.png</p>
                 </div>
                 <div className="text-xs font-mono text-zinc-400 px-4 py-2.5 bg-zinc-50 border-t border-zinc-100">AI conversational agent — 2× plan adoption</div>
               </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ── MediaPair ── */}
+        <div id="media-pair" className={sectionDivider}>
+          <p className="text-xs font-mono text-zinc-400 uppercase tracking-widest">MediaPair</p>
+        </div>
+        <div className="mb-16 p-8 border border-zinc-100 rounded-lg space-y-4">
+          <p className="text-sm text-zinc-500">Two media side by side, top-aligned, equal-width columns (stacks on mobile). Pass any two children — typically a Screenshot and a Video. Use each child&apos;s <code className="text-xs font-mono text-zinc-700">mediaClassName</code> to lock both to the same height, e.g. <code className="text-xs font-mono text-zinc-700">h-64 sm:h-72</code> with <code className="text-xs font-mono text-zinc-700">object-contain</code> / <code className="text-xs font-mono text-zinc-700">object-cover</code>.</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
+            <div className="rounded-lg overflow-hidden border border-zinc-200 shadow-sm">
+              <div className="bg-zinc-100 border-b border-zinc-200 px-4 py-2.5 flex items-center gap-2">
+                <div className="flex gap-1.5 flex-shrink-0">
+                  <div className="w-3 h-3 rounded-full bg-zinc-300" />
+                  <div className="w-3 h-3 rounded-full bg-zinc-300" />
+                  <div className="w-3 h-3 rounded-full bg-zinc-300" />
+                </div>
+              </div>
+              <div className="bg-zinc-50 h-64 sm:h-72 flex items-center justify-center">
+                <p className="text-xs font-mono text-zinc-300">screenshot.png</p>
+              </div>
+              <div className="text-xs font-mono text-zinc-400 px-4 py-2.5 bg-zinc-50 border-t border-zinc-100">object-contain</div>
+            </div>
+            <div className="rounded-lg overflow-hidden border border-zinc-200 shadow-sm">
+              <div className="bg-zinc-900 h-64 sm:h-72 flex items-center justify-center">
+                <p className="text-xs font-mono text-zinc-600">demo.mp4</p>
+              </div>
+              <div className="text-xs font-mono text-zinc-400 px-4 py-2.5 bg-zinc-50 border-t border-zinc-100">object-cover</div>
             </div>
           </div>
         </div>
@@ -455,6 +519,46 @@ export default function ComponentsPage() {
           </div>
         </div>
 
+        {/* ── Video ── */}
+        <div id="video" className={sectionDivider}>
+          <p className="text-xs font-mono text-zinc-400 uppercase tracking-widest">Video</p>
+        </div>
+        <div className="mb-16 p-8 border border-zinc-100 rounded-lg">
+          <p className="text-xs font-mono text-zinc-300 mb-4">
+            HTML5 player with optional caption — for screen recordings and demos. Chrome-free, controls on.
+          </p>
+          <figure className="rounded-lg overflow-hidden border border-zinc-200 shadow-sm max-w-2xl">
+            <div className="bg-zinc-900 h-64 flex items-center justify-center">
+              <p className="text-xs font-mono text-zinc-500">video player (controls, poster)</p>
+            </div>
+            <figcaption className="text-xs font-mono text-zinc-400 px-4 py-2.5 bg-zinc-50 border-t border-zinc-100">
+              Unedited screen recording — caption goes here
+            </figcaption>
+          </figure>
+        </div>
+
+        {/* ── Metrics ── */}
+        <div id="metrics" className={sectionDivider}>
+          <p className="text-xs font-mono text-zinc-400 uppercase tracking-widest">Metrics</p>
+        </div>
+        <div className="mb-16 p-8 border border-zinc-100 rounded-lg">
+          <p className="text-xs font-mono text-zinc-300 mb-4">
+            A row of hard numbers. Value + mono label. Supports 2, 3, or 4 items.
+          </p>
+          <div className="grid grid-cols-3 gap-px bg-zinc-200 border border-zinc-200 rounded-lg overflow-hidden max-w-xl">
+            {[
+              { value: "1:09", label: "Time to trace" },
+              { value: "5", label: "Clicks" },
+              { value: "0", label: "Warnings" },
+            ].map((m) => (
+              <div key={m.label} className="bg-white px-5 py-6 text-center">
+                <div className="text-3xl font-semibold tracking-tight text-zinc-900 tabular-nums">{m.value}</div>
+                <div className="text-xs font-mono text-zinc-400 uppercase tracking-widest mt-2">{m.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* ── Card (shadcn) ── */}
         <div id="card" className={sectionDivider}>
           <p className="text-xs font-mono text-zinc-400 uppercase tracking-widest">Card (shadcn — available, not used directly on site yet)</p>
@@ -473,6 +577,21 @@ export default function ComponentsPage() {
               <button className="inline-flex items-center justify-center rounded-md text-sm font-medium h-9 px-3 border border-zinc-200 bg-white hover:bg-zinc-50 text-zinc-900 transition-colors">Cancel</button>
             </div>
           </div>
+        </div>
+
+        {/* ── ComparisonTable ── */}
+        <div id="comparison-table" className={sectionDivider}>
+          <p className="text-xs font-mono text-zinc-400 uppercase tracking-widest">ComparisonTable</p>
+        </div>
+        <div className="mb-16 p-8 border border-zinc-100 rounded-lg space-y-4">
+          <p className="text-sm text-zinc-500">Options laid side by side. First column is the row label (zinc-700), the rest is prose (zinc-500). Cells accept any ReactNode. Scrolls horizontally below ~680px.</p>
+          <ComparisonTable
+            columns={["Approach", "How it works", "Glass box?", "Verdict"]}
+            rows={[
+              ["Learned baseline", "A model trained on past runs flags anomalies.", "No - opaque by construction", "Left out. Verdicts can’t be traced."],
+              ["Explicit expectation", "Declare what a step should return, check it.", "Yes", "Built. Inspectable by construction."],
+            ]}
+          />
         </div>
 
         {/* ── Color tokens ── */}
@@ -550,6 +669,23 @@ export default function ComponentsPage() {
               ))}
             </div>
           </div>
+        </div>
+
+        {/* ── AssuranceRailPrototype ── */}
+        <div id="assurance-rail" className={sectionDivider}>
+          <p className="text-xs font-mono text-zinc-400 uppercase tracking-widest">AssuranceRailPrototype (case-study-only — Tines)</p>
+        </div>
+        <div className="mb-16 p-8 border border-zinc-100 rounded-lg">
+          <p className="text-xs font-mono text-zinc-300 mb-4">
+            Bounded, low-fidelity interactive mock in Tines&apos; light visual
+            idiom, framed like a contained product surface. Toggle Autonomy vs
+            Governed autonomy and run the agent. The point it dramatizes: in
+            autonomy the agent certifies its own steps; in governed an independent
+            rail enforces the agent&apos;s declared expectation and withholds its
+            verdict on a divergence, then hands off to Workbench. Logic is
+            unit-tested in src/lib/assurance-rail.ts.
+          </p>
+          <AssuranceRailPrototype />
         </div>
 
       </main>
