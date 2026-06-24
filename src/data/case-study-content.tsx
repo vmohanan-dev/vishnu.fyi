@@ -37,7 +37,7 @@ const TinesContent = () => (
       <p className="text-zinc-500 leading-relaxed">
         I didn&apos;t want an opinion about the debugging gap. I wanted the
         customer&apos;s experience of it. So in Tines Community Edition I built a
-        25-step phishing report triage story, the most common thing a SOC runs:
+        25-step phishing report triage story - standard SOC work:
       </p>
       <ol className="mt-3 space-y-1.5 text-zinc-500 leading-relaxed list-decimal list-inside marker:text-zinc-400">
         <li>A report comes in through a webhook.</li>
@@ -47,11 +47,11 @@ const TinesContent = () => (
         <li>It opens a ticket, posts a Slack alert, and writes an audit log.</li>
       </ol>
       <p className="text-zinc-500 leading-relaxed mt-4">
-        The kind of unattended workflow that fires hundreds of times a day with
-        no one watching.
+        The kind of unattended workflow that runs at volume with no one watching
+        each run.
       </p>
       <p className="text-zinc-500 leading-relaxed mt-4">
-        Then I broke it the way a real person would. In one transform I changed a
+        Then I broke it. In one transform I changed a
         field reference from <code className="text-zinc-700">org</code> to{" "}
         <code className="text-zinc-700">organization</code>. That field
         doesn&apos;t exist on the response, so it returns nothing. A typo. The
@@ -69,7 +69,7 @@ const TinesContent = () => (
     <section>
       <p className="text-zinc-500 leading-relaxed">
         The story looks identical before and after the break. Every step green,
-        both times. That is the entire problem in one image.
+        both times.
       </p>
     </section>
 
@@ -90,9 +90,8 @@ const TinesContent = () => (
     <section>
       <p className="text-zinc-500 leading-relaxed">
         The ticket a SOC analyst opens looks complete. The hosting provider
-        field is just empty. Empty enough to miss on a tired scroll, and exactly
-        the field that tells you whether a domain sits on Cloudflare or a
-        bulletproof host.
+        field is just empty. Empty enough to miss, and exactly the field that
+        tells you whether a domain sits on Cloudflare or a bulletproof host.
       </p>
     </section>
 
@@ -114,8 +113,8 @@ const TinesContent = () => (
 
     <section>
       <p className="text-zinc-500 leading-relaxed">
-        The Slack alert is worse, because a human reads it. The line an analyst
-        needs to judge severity is simply gone.
+        The Slack alert is where a person makes the call. The line they need to
+        judge severity is simply gone.
       </p>
     </section>
 
@@ -183,7 +182,7 @@ const TinesContent = () => (
 
     <section>
       <p className="text-zinc-500 leading-relaxed">
-        Three numbers, one thesis. Diagnosis was fast. Detection never happened.
+        Diagnosis was fast. Detection never happened.
       </p>
     </section>
 
@@ -211,10 +210,10 @@ const TinesContent = () => (
       <p className="text-zinc-500 leading-relaxed">
         My honest first reaction was a small drop in the stomach. There goes my
         thesis - Tines had already solved the debugging I came to complain about,
-        and solved it well, faster than my five clicks. Sitting with it, the
-        distinction I kept landing on was narrower. Workbench is very good at
-        explaining a problem once you suspect one. What I couldn&apos;t find was
-        the thing that makes you suspect it.
+        and solved it well, faster than my five clicks. Sitting with it, the gap
+        is smaller than I expected going in, and more specific. Workbench is very
+        good at explaining a problem once you suspect one. What I couldn&apos;t
+        find was the thing that makes you suspect it.
       </p>
       <p className="text-zinc-500 leading-relaxed mt-4">
         Workbench is a pull tool. You reach for it once you already suspect
@@ -235,10 +234,9 @@ const TinesContent = () => (
         run, then re-runs it later with the same saved inputs in a sandbox and
         diffs the outbound requests to confirm an edit didn&apos;t break anything.
         It&apos;s a build-time check, run on demand, against a baseline you
-        maintain by hand. The point that survives either way: the capability to
-        diff an output against an expectation already lives in the product. It
-        just runs on demand, at build time, rather than automatically, on every
-        live run.
+        maintain by hand. That capability - diff an output against an expectation
+        - already lives in the product. It runs on demand, at build time, not
+        automatically on every live run.
       </p>
     </section>
 
@@ -255,19 +253,18 @@ const TinesContent = () => (
         escalation surfaces downstream. Sometimes it never does.
       </p>
       <p className="text-zinc-500 leading-relaxed mt-4">
-        Here is why this is urgent now and not a someday-nice-to-have. The gap
-        scales with the exact bet Tines is making. Every move toward agents and
-        autonomous execution puts more steps in production with no human watching
-        the output, and a baseline you recorded in advance covers even less of
-        what actually runs. The more ambitious the roadmap, the wider the gap it
-        opens behind it.
+        The gap scales with the direction Tines is moving. Every move toward
+        agents and autonomous execution puts more steps in production with no
+        human watching the output, and a baseline you recorded in advance covers
+        even less of what actually runs. The more ambitious the roadmap, the
+        wider the gap it opens behind it.
       </p>
       <p className="text-zinc-500 leading-relaxed mt-4">
-        And the market is already nervous about this precise thing. The loudest
-        fear about autonomous SOC tools is the silent false negative - an agent
-        that closes a real threat no one ever sees. It is the same shape as the
-        green run that stays quiet. It also runs against how Tines positions its
-        own AI: built, in their words, so you are{" "}
+        The fear that surfaces most in coverage of autonomous SOC tools is the
+        silent false negative - an agent that closes a real threat no one ever
+        sees. It is the same shape as the green run that stays quiet. It also
+        runs against how Tines positions its own AI: built, in their words, so
+        you are{" "}
         <a
           href="https://www.tines.com/blog/ai-in-tines-secure-private-by-design/"
           target="_blank"
@@ -278,9 +275,8 @@ const TinesContent = () => (
         </a>
         , secure and private by design rather than another black box. That
         positioning only holds if the platform can surface the run that silently
-        diverged. Today it can&apos;t, and neither can anyone else. Whoever closes
-        that gap first defines what &quot;trustworthy autonomy&quot; means for the
-        category.
+        diverged. Today it doesn&apos;t. None of the agentic-SOC entrants I
+        mapped in the appendix do either.
       </p>
     </section>
 
@@ -292,21 +288,22 @@ const TinesContent = () => (
         Workbench from reactive diagnosis to proactive detection: validate a
         run&apos;s output against the shape it was supposed to produce, flag the
         green run that silently diverged, and hand it to Workbench, which already
-        knows how to explain and fix it. The structure to do this is already
+        knows how to explain and fix it. The structure to do this may already be
         there. A field with no consumers going empty is noise. A field that feeds
-        a risk score and a ticket going empty is a signal. The graph knows the
-        difference. The platform just doesn&apos;t look yet.
+        a risk score and a ticket going empty is a signal. That relationship is
+        visible in the builder - whether it&apos;s queryable is the product
+        question.
       </p>
       <p className="text-zinc-500 leading-relaxed mt-4">
-        Detection is also the rare AI capability Tines is better placed to ship
-        than the agentic-SOC startups it gets measured against. A black-box agent
-        can&apos;t tell you a field came back wrong, because it never knew what
-        right looked like. A Tines story does know: the graph spells out that the
-        ticket step needs a hosting provider from the enrichment step, so a blank
-        one is a contradiction the platform can see. The thing people call Tines&apos;
-        limitation - that it runs a fixed graph instead of a free-roaming model -
-        is exactly what makes a silent failure catchable here and hard to catch
-        anywhere else.
+        Detection is also the AI capability Tines is better placed to ship than
+        the agentic-SOC startups it competes with. A black-box agent can&apos;t
+        tell you a field came back wrong, because it never knew what right looked
+        like. A Tines story should know: the builder shows that the ticket step
+        pulls from the enrichment step, so a blank enrichment output on a step
+        that depends on it is a contradiction that could be surfaced. The thing
+        usually framed as Tines&apos; limitation - that it runs a fixed graph
+        instead of a free-roaming model - is exactly what makes a silent failure
+        catchable here, and hard to catch on a free-roaming model.
       </p>
       <p className="text-zinc-500 leading-relaxed mt-4">
         I&apos;ll address the elephant in the room when it comes to this memo:
@@ -352,7 +349,7 @@ const TinesContent = () => (
       </p>
       <p className="text-zinc-500 leading-relaxed">
         Debugging wasn&apos;t the loudest candidate. Pricing and AI-credit anxiety
-        are what customers actually shout about, and I walked past both on
+        are what shows up loudest in the reviews, and I walked past both on
         purpose. Pricing is a packaging decision, not a product gap - different
         bet, different owner. AI-credit anxiety is loud in the reviews, but Tines
         is already transparent about credit pricing and ships{" "}
@@ -365,10 +362,12 @@ const TinesContent = () => (
           usage reporting
         </a>{" "}
         for it, so recommending it would mean recommending work that&apos;s
-        already happening. Debugging is the opposite: quiet in the sales cycle,
-        costly in production. Loud problems are mostly prospect problems. Quiet
-        ones are retention problems, and they stay quiet because the people who
-        feel this most already bought, already stayed, and are now stuck at 3am.
+        already happening. Debugging reads as the opposite: barely visible in
+        what surfaces publicly before a sale, costly once you&apos;re in
+        production. In my read of this, the loud complaints are prospect
+        complaints. The quiet ones are retention problems, and they stay quiet
+        because the people who feel this most already bought, already stayed, and
+        are now stuck at 3am.
       </p>
       <p className="text-zinc-500 leading-relaxed mt-4">
         To get there I ranked 12 customer problems on a RICE matrix, went deep on
