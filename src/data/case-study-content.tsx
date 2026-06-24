@@ -295,17 +295,6 @@ const TinesContent = () => (
         question.
       </p>
       <p className="text-zinc-500 leading-relaxed mt-4">
-        Detection is also the AI capability Tines is better placed to ship than
-        the agentic-SOC startups it competes with. A black-box agent can&apos;t
-        tell you a field came back wrong, because it never knew what right looked
-        like. A Tines story should know: the builder shows that the ticket step
-        pulls from the enrichment step, so a blank enrichment output on a step
-        that depends on it is a contradiction that could be surfaced. The thing
-        usually framed as Tines&apos; limitation - that it runs a fixed graph
-        instead of a free-roaming model - is exactly what makes a silent failure
-        catchable here, and hard to catch on a free-roaming model.
-      </p>
-      <p className="text-zinc-500 leading-relaxed mt-4">
         I&apos;ll address the elephant in the room when it comes to this memo:
         I&apos;m on the outside looking in. I don&apos;t have your customer data, your interviews, or your
         internal strategy. I built one story over a few days; you and your team
