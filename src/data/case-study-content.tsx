@@ -18,10 +18,11 @@ const TinesContent = () => (
         flagging it.
       </p>
       <p className="text-zinc-500 leading-relaxed mt-4">
-        That is the failure I&apos;d worry about. Not the one that turns red and
-        pages someone - the one that stays green and hands a tired analyst a
-        threat dressed up as a clean result. It&apos;s the problem I&apos;d work
-        on first, and it&apos;s specific to what Tines is for. When a Zapier
+        Not the run that turns red and pages someone. The run that stays green
+        and hands a tired analyst a threat dressed up as a clean result.
+      </p>
+      <p className="text-zinc-500 leading-relaxed mt-4">
+        That failure class is specific to what Tines is for. When a Zapier
         workflow breaks, a marketing email doesn&apos;t send. When a Tines story
         breaks, a phishing report goes untriaged, an access credential stays
         live, or a compliance action silently never fires. Same class of bug,
