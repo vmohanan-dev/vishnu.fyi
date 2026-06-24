@@ -307,15 +307,13 @@ const TinesContent = () => (
         But I don&apos;t form opinions about products from a distance. The way I
         learn a product is to build the whole thing in it, as the customer would.{" "}
         <a
-          href="/vishnu-mohanan-cv.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="/about"
           className="underline underline-offset-4 hover:text-zinc-900 transition-colors"
         >
           Nine years shipping product at HubSpot
         </a>
         , building my father-in-law&apos;s honey business end to end in the
-        platform - domain, CRM, social posts - and building{" "}
+        platform, and building{" "}
         <a
           href="https://laceup.club"
           target="_blank"
@@ -338,8 +336,7 @@ const TinesContent = () => (
       </p>
       <p className="text-zinc-500 leading-relaxed">
         Debugging wasn&apos;t the loudest candidate. Pricing and AI-credit anxiety
-        are what shows up loudest in the reviews, and I walked past both on
-        purpose. Pricing is a packaging decision, not a product gap - different
+        are what shows up loudest in the reviews. Pricing is a packaging decision, not a product gap - different
         bet, different owner. AI-credit anxiety is loud in the reviews, but Tines
         is already transparent about credit pricing and ships{" "}
         <a
