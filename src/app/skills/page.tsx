@@ -35,11 +35,13 @@ export default function SkillsPage() {
             Authored
           </h2>
           <p className="text-sm text-zinc-500 mb-6 max-w-xl">
-            One system, not four scripts. <span className="font-mono text-zinc-700">work-brain</span> is the
-            substrate - my role, people, voice, and projects as plain files. The rest are apps that read
-            and write it: <span className="font-mono text-zinc-700">slack-er</span> drafts in my voice,{" "}
+            Most of these form one system: <span className="font-mono text-zinc-700">work-brain</span> holds
+            my role, people, voice, and projects as plain files, and the rest read and write it —{" "}
+            <span className="font-mono text-zinc-700">slack-er</span> drafts in my voice,{" "}
             <span className="font-mono text-zinc-700">morning-brief</span> reads my VIPs and project state,{" "}
-            <span className="font-mono text-zinc-700">gardener</span> keeps it current.
+            <span className="font-mono text-zinc-700">gardener</span> keeps it current.{" "}
+            <span className="font-mono text-zinc-700">storytelling</span> and{" "}
+            <span className="font-mono text-zinc-700">pm-peer</span> are standalone — portable to any workflow.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {authored.map((skill) => (
