@@ -11,6 +11,7 @@ One system, not separate scripts: **work-brain** is the substrate; the rest are 
 - **slack-er** — Triages my Slack and drafts replies in my voice for messages that genuinely need one. Drafts only, never sends. ([source](authored/slack-er/SKILL.md))
 - **morning-brief** — Orchestrator that fans out to parallel subagents (calendar, Slack, tasks, email) and composes a 5-minute brief: ranked Top 3, schedule with prep, and what needs a decision. ([source](authored/morning-brief/SKILL.md))
 - **capex** — Monthly CapEx report for an engineering team: pulls merged PRs from GitHub, classifies into capitalizable features, weights by PR size, and proposes per-engineer percentages. ([source](authored/capex/SKILL.md))
+- **storytelling** — Narrative structure frameworks for persuasive business communication: roadmap reviews, exec readouts, business cases, product pitches, strategy memos, proposals, and presentations. ([source](authored/storytelling/SKILL.md))
 
 ## Public skills I use
 
@@ -31,5 +32,4 @@ Internal HubSpot skills I use day-to-day (described generically; not published h
 
 - **prd-builder** — Drafts a PRD through section-by-section intake, treating "idk"/"TBD" as first-class open questions instead of forcing answers.
 - **prd-reviewer** — Reviews a draft PRD for structural, logical, and strategic rigor plus handoff-readiness, returning a scored punch list.
-- **storytelling** — Narrative-structure frameworks for persuasive business communication: decks, proposals, strategy docs. *(Created by a colleague.)*
 - **deslop** — Detects and removes AI writing tropes from prose.
