@@ -51,6 +51,22 @@ export const skills: Skill[] = [
     source:
       "https://github.com/vmohanan-dev/vishnu.fyi/blob/main/skills/authored/gardener/SKILL.md",
   },
+  {
+    name: "storytelling",
+    description:
+      "Narrative-structure frameworks for persuasive business communication — roadmap reviews, exec readouts, business cases, product pitches, strategy memos, proposals, and presentations.",
+    tier: "authored",
+    source:
+      "https://github.com/vmohanan-dev/vishnu.fyi/blob/main/skills/authored/storytelling/SKILL.md",
+  },
+  {
+    name: "pm-peer",
+    description:
+      "Full PM document lifecycle: research existing capabilities and customer evidence, brainstorm solutions, write PRDs with structured intake, and review them across structural, logical, strategic, and handoff-readiness lenses.",
+    tier: "authored",
+    source:
+      "https://github.com/vmohanan-dev/vishnu.fyi/blob/main/skills/authored/pm-peer/SKILL.md",
+  },
 
   // ── Public (vendored from mattpocock/skills) ──
   {
@@ -113,12 +129,6 @@ export const skills: Skill[] = [
     name: "prd-reviewer",
     description:
       "Reviews a draft PRD for structural, logical, and strategic rigor plus handoff-readiness, returning a scored punch list.",
-    tier: "internal",
-  },
-  {
-    name: "storytelling",
-    description:
-      "Narrative-structure frameworks for persuasive business communication — decks, proposals, strategy docs. Created by a colleague.",
     tier: "internal",
   },
   {
