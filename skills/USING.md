@@ -12,6 +12,7 @@ One system, not separate scripts: **work-brain** is the substrate; the rest are 
 - **morning-brief** — Orchestrator that fans out to parallel subagents (calendar, Slack, tasks, email) and composes a 5-minute brief: ranked Top 3, schedule with prep, and what needs a decision. ([source](authored/morning-brief/SKILL.md))
 - **capex** — Monthly CapEx report for an engineering team: pulls merged PRs from GitHub, classifies into capitalizable features, weights by PR size, and proposes per-engineer percentages. ([source](authored/capex/SKILL.md))
 - **storytelling** — Narrative structure frameworks for persuasive business communication: roadmap reviews, exec readouts, business cases, product pitches, strategy memos, proposals, and presentations. ([source](authored/storytelling/SKILL.md))
+- **pm-peer** — Full PM document lifecycle: research existing capabilities and customer evidence, brainstorm solutions, write PRDs with structured intake, and review them across structural/logical/strategic/handoff-readiness lenses. ([source](authored/pm-peer/SKILL.md))
 
 ## Public skills I use
 
