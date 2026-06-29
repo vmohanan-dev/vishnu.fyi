@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Relink all skills into ~/.claude/skills.
+# Relink all skills into local agent skill directories.
 #   - Vendored skills: cloned/pulled from upstream (sources.tsv), symlinked.
 #   - Authored skills: everything under authored/, symlinked.
 # Existing real directories at a target are moved to a timestamped backup,
@@ -9,23 +9,30 @@ set -euo pipefail
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SOURCES="$REPO_DIR/sources.tsv"
 SRC_CACHE="$REPO_DIR/.sources"
-DEST="$HOME/.claude/skills"
-BACKUP="$HOME/.claude/skills-backup-$(date +%Y%m%d-%H%M%S)"
+DESTS=("$HOME/.claude/skills" "$HOME/.codex/skills")
 
-mkdir -p "$DEST" "$SRC_CACHE"
+mkdir -p "$SRC_CACHE"
 
 link() { # <target_path> <skill_name>
-  target="$1"; name="$2"; dest="$DEST/$name"
+  target="$1"; name="$2"
   if [ ! -e "$target" ]; then
     echo "  SKIP  $name (missing source: $target)"; return
   fi
-  if [ -L "$dest" ]; then
-    rm "$dest"
-  elif [ -e "$dest" ]; then
-    mkdir -p "$BACKUP"; mv "$dest" "$BACKUP/"; echo "  backed up existing $name -> $BACKUP/$name"
-  fi
-  ln -s "$target" "$dest"
-  echo "  link  $name -> ${target/#$HOME/~}"
+
+  for dest_root in "${DESTS[@]}"; do
+    mkdir -p "$dest_root"
+    dest="$dest_root/$name"
+    backup="$(dirname "$dest_root")/skills-backup-$(date +%Y%m%d-%H%M%S)"
+
+    if [ -L "$dest" ]; then
+      rm "$dest"
+    elif [ -e "$dest" ]; then
+      mkdir -p "$backup"; mv "$dest" "$backup/"; echo "  backed up existing $name -> ${backup/#$HOME/~}/$name"
+    fi
+
+    ln -s "$target" "$dest"
+    echo "  link  ${dest/#$HOME/~} -> ${target/#$HOME/~}"
+  done
 }
 
 clone_key() { # <repo_url> -> owner-repo
@@ -51,6 +58,22 @@ echo "Authored skills:"
 for d in "$REPO_DIR"/authored/*/; do
   [ -d "$d" ] || continue
   link "${d%/}" "$(basename "$d")"
+done
+
+echo "Claude-only skills:"
+mkdir -p "$HOME/.codex/skills"
+for src in "$HOME"/.claude/skills/*; do
+  [ -e "$src" ] || continue
+  name="$(basename "$src")"
+  dest="$HOME/.codex/skills/$name"
+
+  if [ -e "$dest" ] || [ -L "$dest" ]; then
+    echo "  keep  ${dest/#$HOME/~}"
+    continue
+  fi
+
+  ln -s "$src" "$dest"
+  echo "  link  ${dest/#$HOME/~} -> ${src/#$HOME/~}"
 done
 
 echo "Done."
