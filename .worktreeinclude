@@ -1,0 +1,6 @@
+.env*
+career-reference*.md
+TINES_CONTEXT.md
+Tines/**
+performance reviews/**
+tines-*.html

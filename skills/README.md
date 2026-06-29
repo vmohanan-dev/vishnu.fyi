@@ -1,6 +1,6 @@
 # skills
 
-My [Claude Code](https://claude.com/claude-code) skills — the ones I author and the ones I vendor from elsewhere. Lives in this repo so it can be showcased on the site; `sync.sh` symlinks every skill into `~/.claude/skills/` so they load in every Claude session, not just when working here.
+My agent skills — the ones I author and the ones I vendor from elsewhere. Lives in this repo so it can be showcased on the site; `sync.sh` symlinks every skill into `~/.claude/skills/` and `~/.codex/skills/` so they load in Claude and Codex sessions, not just when working here.
 
 ## Layout
 
