@@ -86,6 +86,14 @@ export default function ComponentsPage() {
             <p className="text-xs font-mono text-zinc-300 mb-2">Label / meta — text-xs font-mono text-zinc-400</p>
             <p className="text-xs font-mono text-zinc-400">2021 – 2024</p>
           </div>
+          <div>
+            <p className="text-xs font-mono text-zinc-300 mb-2">Prose list — list-disc pl-5 space-y-3 marker:text-zinc-300, items in body text (deep-dive pages)</p>
+            <ul className="list-disc pl-5 space-y-3 marker:text-zinc-300 text-zinc-500 leading-relaxed max-w-xl">
+              <li>Breeze Assistant was the general-purpose chat.</li>
+              <li>Custom Assistants let admins build role-specific AI assistants.</li>
+              <li>Custom Agents ran automated tasks.</li>
+            </ul>
+          </div>
         </div>
 
         {/* ── Nav ── */}
@@ -390,6 +398,17 @@ export default function ComponentsPage() {
               </div>
               <div className="bg-zinc-50 h-32 flex items-center justify-center">
                 <p className="text-xs font-mono text-zinc-300">screenshot image here</p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <p className="text-xs font-mono text-zinc-300 mb-3">No chrome — <code className="text-zinc-500">chrome={"{false}"}</code>, for images that carry their own frame</p>
+            <div className="rounded-lg overflow-hidden border border-zinc-200 shadow-sm">
+              <div className="bg-zinc-50 h-32 flex items-center justify-center">
+                <p className="text-xs font-mono text-zinc-300">self-framed image here</p>
+              </div>
+              <div className="text-xs font-mono text-zinc-400 px-4 py-2.5 bg-zinc-50 border-t border-zinc-100">
+                Caption still renders below
               </div>
             </div>
           </div>

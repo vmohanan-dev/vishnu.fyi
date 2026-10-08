@@ -19,6 +19,15 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    title: "Breeze Projects",
+    description:
+      "Collapsed HubSpot's three overlapping AI entry points into one configurable Breeze Assistant. Found 86% of new projects had no knowledge attached and rebuilt creation around templates. Weekly project chats doubled in the two weeks after V2 shipped.",
+    stack: ["Breeze Assistant", "LLM", "MCP", "HubSpot"],
+    slug: "breeze-projects",
+    featured: true,
+    hubspot: true,
+  },
+  {
     title: "AI-First Onboarding",
     description:
       "Redesigned HubSpot's Pro onboarding around an agentic intake that turns a customer's goal into a personalised plan, validated against a golden eval set built from 100 real onboarding-specialist calls. HubSpot's #1 2025 product priority.",

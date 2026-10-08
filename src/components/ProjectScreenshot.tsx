@@ -10,6 +10,7 @@ type ScreenshotProps = {
   width?: number;
   height?: number;
   mediaClassName?: string;
+  chrome?: boolean;
 };
 
 type ComparisonProps = {
@@ -49,10 +50,11 @@ export function Screenshot({
   width = 1200,
   height = 800,
   mediaClassName,
+  chrome = true,
 }: ScreenshotProps) {
   return (
     <figure className="rounded-lg overflow-hidden border border-zinc-200 shadow-sm">
-      <ChromeBar url={url} />
+      {chrome && <ChromeBar url={url} />}
       <ExpandableImage
         src={src}
         alt={alt}

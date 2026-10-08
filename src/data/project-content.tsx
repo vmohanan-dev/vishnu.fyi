@@ -1,4 +1,5 @@
 import { Screenshot, BeforeAfter, MobileScreenshots } from "@/components/ProjectScreenshot";
+import { Metrics } from "@/components/Metrics";
 
 export type ProjectPage = {
   slug: string;
@@ -7,6 +8,225 @@ export type ProjectPage = {
   intro: string;
   content: React.ReactNode;
 };
+
+const BreezeProjectsContent = () => (
+  <div className="space-y-10">
+    <section>
+      <p className="text-zinc-500 leading-relaxed">
+        Every serious AI assistant has made the same bet. Claude and ChatGPT
+        have Projects, Gemini has Gems, and HubSpot customers were asking for
+        the same thing: their own instructions, their own context, and control
+        over which tools the assistant was allowed to use.
+      </p>
+      <p className="text-zinc-500 leading-relaxed mt-4">
+        HubSpot had the pieces, spread across three products.
+      </p>
+      <ul className="list-disc pl-5 space-y-3 marker:text-zinc-300 text-zinc-500 leading-relaxed mt-4">
+        <li>Breeze Assistant was the general-purpose chat.</li>
+        <li>Custom Assistants let admins build role-specific AI assistants.</li>
+        <li>Custom Agents ran automated tasks.</li>
+      </ul>
+      <p className="text-zinc-500 leading-relaxed mt-4">
+        They all overlapped, and there was no clear answer to which one a user
+        should reach for.
+      </p>
+      <p className="text-zinc-500 leading-relaxed mt-4">
+        Custom Assistants were the closest to what customers wanted but also
+        the hardest to extend. They ran on a separate LLM stack from Breeze
+        Assistant, so the things customers asked for next - memory across
+        conversations, governance and sharing with a team - couldn&apos;t be
+        added to them.
+      </p>
+    </section>
+
+    <section>
+      <h2 className="text-sm font-semibold text-zinc-900 mb-3">
+        One assistant you configure yourself
+      </h2>
+      <p className="text-zinc-500 leading-relaxed">
+        Breeze Projects put personalisation inside Breeze Assistant itself by
+        holding three things: context the assistant treats as ground truth,
+        instructions for how it should work, and the tools it&apos;s allowed
+        to use. Every conversation inside a project inherited all three, and
+        the project remembers what happened in it. Projects can be shared, so a
+        team works from one setup instead of each person rebuilding it and the
+        admin can specify what tools the project needs to use.
+      </p>
+      <p className="text-zinc-500 leading-relaxed mt-4">
+        I picked up Projects in April 2026 and took the first version to every
+        customer. That version got people creating projects. It didn&apos;t get
+        them filling them.
+      </p>
+    </section>
+
+    <section>
+      <h2 className="text-sm font-semibold text-zinc-900 mb-3">
+        Reading every project
+      </h2>
+      <p className="text-zinc-500 leading-relaxed">
+        Two weeks after launch I pulled every project created and read what
+        was inside. 86% had no knowledge attached. 34% had no instructions.
+        35% were empty shells - a name and nothing else. Only 11% had both
+        instructions and context, the state the product was built for.
+      </p>
+      <p className="text-zinc-500 leading-relaxed mt-4">
+        Users who attached knowledge were about three times less likely to skip
+        instructions and twice as likely to write structured prompts. Context
+        was the leading indicator of a project that worked, and almost nobody
+        was adding it.
+      </p>
+      <p className="text-zinc-500 leading-relaxed mt-4">
+        The intent was there: 17-21% of populated projects rebuilt the old
+        Custom Assistants pattern by hand - a role, a style, a list of rules.
+      </p>
+    </section>
+
+    <section>
+      <h2 className="text-sm font-semibold text-zinc-900 mb-3">
+        Solving cold start
+      </h2>
+      <p className="text-zinc-500 leading-relaxed">
+        V2 attacked the blank page from three sides.
+      </p>
+      <ul className="list-disc pl-5 space-y-3 marker:text-zinc-300 text-zinc-500 leading-relaxed mt-4">
+        <li>
+          First, templates. I clustered the projects people were already creating
+        and built the starting points around the largest use cases. Sales work
+        dominated - prospecting alone was 28% of populated projects, pipeline
+        review 14% - so the templates lead with it: move deals forward, follow
+        up and manage tasks, track your pipeline, prep for meetings, prospect,
+        and plan a campaign.
+          <p className="mt-4">
+        The v0 placeholder modelled that same role, style and rules pattern,
+        and users copied it. I wrote the templates to current prompting
+        practice instead:
+        task first, no &ldquo;act as a senior X&rdquo; persona. Each one
+        has a single worked example, because one input and its expected
+        answer carries more signal than a list of rules. Each points
+        explicitly at the attached context, because that was the behaviour
+        the data said mattered most. Around a fifth of projects were
+        written in languages other than English, so I specced translations
+        from day one.
+          </p>
+        </li>
+        <li>
+        Second, the assistant writes the first draft. Describe the project in a
+        sentence and it generates the title and instructions, so nobody starts
+        from an empty box.
+        </li>
+        <li>
+        Third, less friction to add context. Files upload straight into a
+        project, and instructions reference CRM records with an @mention
+        instead of pasted text. Both go directly at the 86%.
+        </li>
+      </ul>
+    </section>
+
+    <BeforeAfter
+      url="app.hubspot.com"
+      before={{
+        src: "/projects/breeze-projects/before.webp",
+        alt: "The v0 Create a project modal: a name field, one instructions box with a Role / Style / Rules example, and an optional Add knowledge button",
+        caption: "v0: one instructions box. Knowledge sits off to the side.",
+        width: 2000,
+        height: 1422,
+      }}
+      after={{
+        src: "/projects/breeze-projects/after.webp",
+        alt: "The V2 Create project modal: starter templates on the left, and files, knowledge vaults, CRM records and tools laid out on the right",
+        caption: "V2: start from a template. Files, knowledge and CRM records up front.",
+        width: 2000,
+        height: 1419,
+      }}
+    />
+
+    <section>
+      <h2 className="text-sm font-semibold text-zinc-900 mb-3">
+        Sunsetting Custom Assistants
+      </h2>
+      <p className="text-zinc-500 leading-relaxed">
+        Projects only fixed the fragmentation if Custom Assistants went away. I
+        owned the sunset decision.
+      </p>
+      <p className="text-zinc-500 leading-relaxed mt-4">
+        Custom Assistants worked for the customers who used them, so the job
+        was to move them without breaking anyone&apos;s workflow. I anchored
+        the sunset to a hard external date - the launch that replaced the
+        product surface Custom Assistants lived in - and made the migration
+        tool the critical path. Each assistant&apos;s title, instructions and
+        knowledge mapped one-to-one into a project. Existing conversations
+        moved across read-only, so no history was lost.
+      </p>
+      <p className="text-zinc-500 leading-relaxed mt-4">
+        The rollout ran in stages. Creation closed in mid-June. Customers got
+        an in-product warning with the migration path, and account teams on the
+        highest-usage accounts heard first. Customer-built assistants were
+        batch-migrated in mid-July, and by early August all of them had moved
+        to Projects.
+      </p>
+    </section>
+
+    <section>
+      <h2 className="text-sm font-semibold text-zinc-900 mb-3">Results</h2>
+      <div className="mb-6">
+        <Metrics
+          items={[
+            { value: "2x", label: "weekly project chats" },
+            { value: "1.6x", label: "14-day return vs average" },
+            { value: "13.5%", label: "projects shared" },
+            { value: "0.3→1.3%", label: "of assistant users" },
+          ]}
+        />
+      </div>
+      <p className="text-zinc-500 leading-relaxed">
+        Weekly project chats doubled in the two weeks after V2 shipped.
+        Projects grew from 0.3% to 1.3% of all Breeze Assistant weekly users at
+        its peak. Retention was our goal: people who use a
+        project in a given week are about 60% more likely to come back within
+        14 days than the average Breeze Assistant user. Within two weeks of
+        sharing launching, 13.5% of new projects were shared with a teammate.
+      </p>
+    </section>
+
+    <section className="border-l-2 border-zinc-100 pl-5">
+      <h2 className="text-sm font-semibold text-zinc-900 mb-3">
+        Same thesis, more surfaces
+      </h2>
+      <p className="text-zinc-500 leading-relaxed">
+        Configuration is one way to make an assistant less generic. Context
+        from the tools a team already uses is another, and so is showing up
+        where they work. I continue to work on these two problem spaces.
+      </p>
+      <p className="text-zinc-500 leading-relaxed mt-4">
+        Connectors. The legacy connectors were stalling at 0.8% of Breeze
+        Assistant prompts. I aligned three teams on rebuilding them on MCP, the
+        open standard for connecting AI to external tools, instead of
+        hand-building integrations one at a time. The rebuild went to public
+        beta in August, and responses that use a connector hold 92-100%
+        positive feedback week to week. The open problem now is discovery: a
+        connector nobody knows to connect doesn&apos;t change the answer.
+      </p>
+      <p className="text-zinc-500 leading-relaxed mt-4">
+        Slack. Breeze Assistant already lived in Slack, and about 75 times more
+        people saw its cards there than ever @mentioned it. That made it a
+        conversion problem, not an acquisition one. The fix was to put the
+        next step on surfaces people already touched, without the assistant
+        posting unprompted into their channels. After a rollout that reworked
+        the first impression - clearer help, cleaner citations - weekly users
+        @mentioning Breeze Assistant grew more than 6x in a month.
+      </p>
+    </section>
+
+    <Screenshot
+      src="/projects/breeze-projects/slack-thread.webp"
+      alt="A Slack thread where a rep @mentions Breeze Assistant before a customer meeting and gets back the attendees, deal value, close date and open sticking points"
+      caption="Breeze Assistant answering in the thread where the question was asked"
+      width={2000}
+      height={760}
+      chrome={false}
+    />
+  </div>
+);
 
 const OnboardingContent = () => (
   <div className="space-y-10">
@@ -186,9 +406,8 @@ const OnboardingContent = () => (
         The onboarding experience I owned - intake, plan generation, and routing,
         built with partner teams who shipped the rendering surface and task
         content - drove a +20pt lift in week-1 Sales Workspace visits and +26pts
-        in month-1 usage against a control. $270K of MRR reached value through
-        this product-led path, work that previously required a paid onboarding
-        specialist. Portal Initial Value - whether customers reach meaningful
+        in month-1 usage against a control. $270K of MRR moved onto this
+        product-led path instead of paid human onboarding. Portal Initial Value - whether customers reach meaningful
         usage in their first 30 days - rose from 56% to 69% across the period.
         The framework expanded to Marketing, Service, Commerce, and Content Hub.
       </p>
@@ -1002,6 +1221,14 @@ export const projectPages: ProjectPage[] = [
     intro:
       "Three features built around where reps actually are - at conferences, on calls, waiting on prospects. Not a desktop port. A phone that does the job.",
     content: <MobileReps2019Content />,
+  },
+  {
+    slug: "breeze-projects",
+    title: "A generic assistant loses to a configured one.",
+    label: "HubSpot · 2026 · Breeze Product Line",
+    intro:
+      "HubSpot had three AI products doing overlapping jobs. Breeze Projects folded them into one configurable Breeze Assistant and then tackled the cold start that left most new projects without context.",
+    content: <BreezeProjectsContent />,
   },
   {
     slug: "onboarding",
