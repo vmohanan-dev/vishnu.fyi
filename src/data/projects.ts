@@ -22,7 +22,7 @@ export const projects: Project[] = [
     title: "Breeze Projects",
     description:
       "Collapsed HubSpot's three overlapping AI entry points into one configurable Breeze Assistant. Found 86% of new projects had no knowledge attached and rebuilt creation around templates. Weekly project chats doubled in the two weeks after V2 shipped.",
-    stack: ["Breeze Assistant", "LLM", "MCP", "HubSpot"],
+    stack: ["Breeze Assistant", "LLM", "MCP"],
     slug: "breeze-projects",
     featured: true,
     hubspot: true,
@@ -31,7 +31,7 @@ export const projects: Project[] = [
     title: "AI-First Onboarding",
     description:
       "Redesigned HubSpot's Pro onboarding around an agentic intake that turns a customer's goal into a personalised plan, validated against a golden eval set built from 100 real onboarding-specialist calls. HubSpot's #1 2025 product priority.",
-    stack: ["Lovable", "LLM", "HubSpot"],
+    stack: ["Lovable", "LLM"],
     slug: "onboarding",
     featured: true,
     hubspot: true,
@@ -40,7 +40,7 @@ export const projects: Project[] = [
     title: "Mobile Reporting",
     description:
       "Built mobile dashboard reporting from scratch at HubSpot, targeting sales leaders. Grew to 55k weekly users - 1 in 5 mobile users. Retention improved from 27% to 43%.",
-    stack: ["React Native", "HubSpot"],
+    stack: ["React Native"],
     slug: "mobile-reporting",
     hubspot: true,
   },
@@ -48,7 +48,7 @@ export const projects: Project[] = [
     title: "Mobile Sales · Part 2",
     description:
       "60 customer calls revealed the gap. Tasks, Today View, Keyboard, and Conversation Intelligence - four features, one question: what should I do next?",
-    stack: ["iOS", "Android", "HubSpot"],
+    stack: ["iOS", "Android"],
     slug: "mobile-reps-2020",
     hubspot: true,
   },
@@ -56,7 +56,7 @@ export const projects: Project[] = [
     title: "Mobile Sales · Part 1",
     description:
       "HubSpot Mobile was a desktop port. Business Card Scanner, CallerID, and Activity Feed each fixed a specific moment where a rep's phone should have been working harder.",
-    stack: ["iOS", "Android", "HubSpot"],
+    stack: ["iOS", "Android"],
     slug: "mobile-reps-2019",
     hubspot: true,
   },
