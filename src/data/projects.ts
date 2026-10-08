@@ -37,6 +37,14 @@ export const projects: Project[] = [
     hubspot: true,
   },
   {
+    title: "Mobile Reporting",
+    description:
+      "Built mobile dashboard reporting from scratch at HubSpot, targeting sales leaders. Grew to 55k weekly users - 1 in 5 mobile users. Retention improved from 27% to 43%.",
+    stack: ["React Native", "HubSpot"],
+    slug: "mobile-reporting",
+    hubspot: true,
+  },
+  {
     title: "Mobile Sales · Part 2",
     description:
       "60 customer calls revealed the gap. Tasks, Today View, Keyboard, and Conversation Intelligence - four features, one question: what should I do next?",
@@ -53,12 +61,11 @@ export const projects: Project[] = [
     hubspot: true,
   },
   {
-    title: "Mobile Reporting",
+    title: "Indify",
     description:
-      "Built mobile dashboard reporting from scratch at HubSpot, targeting sales leaders. Grew to 55k weekly users — 1 in 5 mobile users. Retention improved from 27% to 43%.",
-    stack: ["React Native", "HubSpot"],
-    slug: "mobile-reporting",
-    hubspot: true,
+      "Dublin's Indian events are scattered across Eventbrite, temple homepages, promoter box offices and Instagram posters. Indify scrapes 20 sources every week, reads posters with Claude vision, and dedupes it all into one list of 129 upcoming events.",
+    stack: ["Python", "Claude", "Apify", "GitHub Actions"],
+    url: "https://indi.fyi",
   },
   {
     title: "The Arena",
@@ -75,7 +82,7 @@ export const projects: Project[] = [
   {
     title: "Tennis Cues",
     description:
-      "iOS coaching app that delivers technique reminders via audio during a match — no screen required. Built to learn E2E iOS development.",
+      "iOS coaching app that delivers technique reminders via audio during a match - no screen required. Built to learn E2E iOS development.",
     stack: ["Claude", "Expo", "Supabase"],
     url: "https://github.com/vmohanan-dev/TennisCue",
   },
